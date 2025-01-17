@@ -39,8 +39,12 @@ UniversityToken (UGT) is an ERC20 token deployed on a blockchain network that re
   
 7. **`getLastTransactionReceiver()`**:
     - Retrieves the receiver of the last transaction.
+    ![alt text](image-2.png)
+    ![alt text](image-3.png)
 
 ## Deployment
+![alt text](image.png)
+![alt text](image-1.png)
 
 ### Requirements
 - Node.js >= 14.x
