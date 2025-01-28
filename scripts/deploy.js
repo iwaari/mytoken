@@ -23,7 +23,7 @@ async function main() {
     }
 
     // Get the contract factory
-    const Token = await ethers.getContractFactory("UniversityToken");
+    const Token = await ethers.getContractFactory("AITU_SE2331");
 
     console.log("Deploying the token contract...");
     // Deploy without parameters since constructor doesn't take any

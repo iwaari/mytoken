@@ -16,6 +16,21 @@ UniversityToken (UGT) is an ERC20 token deployed on a blockchain network that re
 - **Symbol**: UGT
 - **Initial Supply**: 2000 UGT (with 18 decimals)
 
+## Project Structure
+
+```
+.
+├── contracts
+│   └── AITU_SE2331.sol
+├── scripts
+│   └── deploy.js
+├── .env
+├── hardhat.config.js
+├── package.json
+├── README.md
+└── LICENSE
+```
+
 ### Key Functions
 1. **`transfer(address recipient, uint256 amount)`**: 
     - Standard ERC20 transfer function to send tokens to a recipient.
@@ -42,6 +57,13 @@ UniversityToken (UGT) is an ERC20 token deployed on a blockchain network that re
     ![alt text](image-2.png)
     ![alt text](image-3.png)
 
+## Transferring Tokens
+Through MetaMask:
+![alt text](image-4.png)
+![alt text](image-5.png)
+![alt text](image-6.png)
+![alt text](image-7.png)
+
 ## Deployment
 ![alt text](image.png)
 ![alt text](image-1.png)
@@ -55,5 +77,5 @@ UniversityToken (UGT) is an ERC20 token deployed on a blockchain network that re
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/UniversityToken.git
-   cd UniversityToken
+   git clone https://github.com/YOUR_USERNAME/mytoken.git
+   cd mytoken
