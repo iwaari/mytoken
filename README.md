@@ -1,6 +1,6 @@
-# UniversityToken (UGT)
+# AITU_SE2331 (UGT)
 
-UniversityToken (UGT) is an ERC20 token deployed on a blockchain network that represents a tokenized asset for university use cases. It allows the transfer of tokens between addresses and provides transaction details, including timestamps, to enhance transparency.
+AITU_SE2331 (UGT) is an ERC20 token deployed on a blockchain network that represents a tokenized asset for university use cases. It allows the transfer of tokens between addresses and provides transaction details, including timestamps, to enhance transparency.
 
 ## Features
 - **ERC20 Token**: Implements the ERC20 standard for token transfers.
