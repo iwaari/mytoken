@@ -69,17 +69,63 @@ contract AITU_SE2331 is ERC20 {
     }
 
     function formatTimestamp(uint256 _timestamp) internal pure returns (string memory) {
-        uint256 day = (_timestamp / 86400) % 31 + 1; // Calculate day
-        uint256 month = (_timestamp / 2592000) % 12 + 1; // Calculate month
-        uint256 year = 1970 + _timestamp / 31536000; // Calculate year
-        uint256 hour = (_timestamp % 86400) / 3600; // Calculate hour
-        uint256 minute = (_timestamp % 3600) / 60; // Calculate minute
+        uint256 SECONDS_PER_DAY = 86400;
+        uint256 SECONDS_PER_YEAR = 31536000;
+        uint256 SECONDS_PER_HOUR = 3600;
+        uint256 SECONDS_PER_MINUTE = 60;
+
+        uint16 year = 1970;
+        uint8 month;
+        uint8 day;
+
+        uint256 daysSinceEpoch = _timestamp / SECONDS_PER_DAY;
+
+        // Calculate the year
+        while (true) {
+            uint256 daysInYear = (isLeapYear(year)) ? 366 : 365;
+            if (daysSinceEpoch < daysInYear) {
+                break;
+            }
+            daysSinceEpoch -= daysInYear;
+            year++;
+        }
+
+        // Calculate the month and day
+        uint8[12] memory daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if (isLeapYear(year)) {
+            daysInMonth[1] = 29;
+        }
+
+        for (month = 0; month < 12; month++) {
+            if (daysSinceEpoch < daysInMonth[month]) {
+                break;
+            }
+            daysSinceEpoch -= daysInMonth[month];
+        }
+
+        day = uint8(daysSinceEpoch + 1);
+
+        // Calculate hours and minutes
+        uint256 remainingSeconds = _timestamp % SECONDS_PER_DAY;
+        uint8 hour = uint8(remainingSeconds / SECONDS_PER_HOUR);
+        uint8 minute = uint8((remainingSeconds % SECONDS_PER_HOUR) / SECONDS_PER_MINUTE);
+
         return string(
             abi.encodePacked(
-                uintToString(day), "/", uintToString(month), "/", uintToString(year),
+                uintToString(day), "/", uintToString(month + 1), "/", uintToString(year),
                 " ", uintToString(hour), ":", uintToString(minute)
             )
         );
+    }
+
+    function isLeapYear(uint16 year) internal pure returns (bool) {
+        if (year % 4 != 0) {
+            return false;
+        }
+        if (year % 100 == 0 && year % 400 != 0) {
+            return false;
+        }
+        return true;
     }
 
     function uintToString(uint256 v) internal pure returns (string memory) {
@@ -103,3 +149,4 @@ contract AITU_SE2331 is ERC20 {
         return string(bstr);
     }
 }
+    

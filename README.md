@@ -31,6 +31,31 @@ AITU_SE2331 (UGT) is an ERC20 token deployed on a blockchain network that repres
 └── LICENSE
 ```
 
+## Compilation
+
+Compile the contract to ensure everything is correct:
+```bash
+npx hardhat compile
+```
+You should see a success message indicating that your contract compiled without errors.
+
+---
+
+## Deployment
+
+To deploy the contract on the **Holesky** test network:
+
+```bash
+npx hardhat run scripts/deploy.js --network holesky
+```
+
+## Etherscan
+To use contract in https://holesky.etherscan.io we need to verify it:
+
+```bash
+npx hardhat verify --network holesky <deployed-contract-address>
+```
+
 ### Key Functions
 1. **`transfer(address recipient, uint256 amount)`**: 
     - Standard ERC20 transfer function to send tokens to a recipient.
