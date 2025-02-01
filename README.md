@@ -96,16 +96,6 @@ Through MetaMask:
 ![alt text](image.png)
 ![alt text](image-1.png)
 
-### Testing 
-In contract-test.js we have test cases for original and modified smart contracts.
-To test them: 
-
-```bash
-npx hardhat test
-```
-![alt text](image-8.png)
-
-
 ### Requirements
 - Node.js >= 14.x
 - NPM
@@ -117,3 +107,14 @@ npx hardhat test
    ```bash
    git clone https://github.com/YOUR_USERNAME/mytoken.git
    cd mytoken
+
+## PART2
+
+### Testing 
+In contract-test.js we have test cases for original and modified smart contracts.
+To test them: 
+
+```bash
+npx hardhat test
+```
+![alt text](image-8.png)
