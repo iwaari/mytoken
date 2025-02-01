@@ -21,9 +21,12 @@ AITU_SE2331 (UGT) is an ERC20 token deployed on a blockchain network that repres
 ```
 .
 ├── contracts
-│   └── AITU_SE2331.sol
+│   ├── AITU_SE2331.sol
+│   └── AITU_SE2331Modified.sol (part2)
 ├── scripts
 │   └── deploy.js
+├── test
+│   └── contract-test.js (part2)
 ├── .env
 ├── hardhat.config.js
 ├── package.json
@@ -92,6 +95,16 @@ Through MetaMask:
 ## Deployment
 ![alt text](image.png)
 ![alt text](image-1.png)
+
+### Testing 
+In contract-test.js we have test cases for original and modified smart contracts.
+To test them: 
+
+```bash
+npx hardhat test
+```
+![alt text](image-8.png)
+
 
 ### Requirements
 - Node.js >= 14.x

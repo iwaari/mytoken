@@ -3,7 +3,10 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract AITU_SE2331 is ERC20 {
+contract AITU_SE2331Modified is ERC20 {
+    address public contractOwner;
+    uint256 public initialSupply;
+    
     event TransactionDetails(
         address indexed sender,
         address indexed receiver,
@@ -20,8 +23,11 @@ contract AITU_SE2331 is ERC20 {
 
     TransactionInfo public lastTransaction;
 
-    constructor() ERC20("AITU_SE2331", "UGT") { 
-        _mint(msg.sender, 2000 * 10**decimals());
+    constructor(uint256 _initialSupply) ERC20("AITU_SE2331", "UGT") { 
+        require(_initialSupply > 0, "Initial supply must be greater than 0");
+        contractOwner = msg.sender;
+        initialSupply = _initialSupply;
+        _mint(msg.sender, _initialSupply * 10**decimals());
     }
 
     function transfer(address recipient, uint256 amount) public override returns (bool) {
@@ -149,4 +155,3 @@ contract AITU_SE2331 is ERC20 {
         return string(bstr);
     }
 }
-    
