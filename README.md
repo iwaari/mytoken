@@ -117,4 +117,4 @@ To test them:
 ```bash
 npx hardhat test
 ```
-![alt text](image-8.png)
+![alt text](image-9.png)
